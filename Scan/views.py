@@ -3,10 +3,15 @@ from .forms import WebURLForm
 # Create your views here.
 from django.views import generic
 from .models import Website
+from .Scripts.sqli import SQLI
 import datetime
 
 def evaluateWebsite(web_url):
-    pass
+    obj = SQLI(web_url)
+    obj.run_tests()
+    resp_code = obj.get_status()
+    return resp_code
+
 
 def driverView(request):
 
@@ -25,10 +30,20 @@ def driverView(request):
                 curr_date = datetime.date.today()
                 if last_date - curr_date > 1:
                     res = evaluateWebsite(web_url)
+                    if res == true:
+                        pass
+                    else:
+                        pass
                     # res: either a list or dictionary of results
                     #render res
 
                 else:
+                    res = Website.objects.filter(URL= web_url)
+                    score = res['sql_i_score']
+                    if res == true:
+                        pass
+                    else:
+                        pass
                     #website checked in the last 24 hours
                     #retrieve the earlier result
                     pass
@@ -36,15 +51,17 @@ def driverView(request):
                 #function call
 
             else:
-                #run the check on the website
-                web_obj = Website()
-
                 res = evaluateWebsite(web_url)
+                #run the check on the website
+                web_obj = Website( lastchecked= datetime.datetime.today(), sql_i_score = res, URL= web_url)
+                web_obj.save()
+                if res == true:
+                    pass
+                else:
+                    pass
                 #render res
                 pass
 
-
         #return render(request, 'catalog/book_renew_librarian.html', context)
-
     pass
 

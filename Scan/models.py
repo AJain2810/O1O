@@ -10,13 +10,13 @@ class Website(models.Model):
     """
     Model representing a website stat
     """
-    name = models.CharField(max_length=200)
+    #name = models.CharField(max_length=200)
     URL = models.TextField(max_length=400)
     # Store the URL of the website
     lastchecked = models.DateField()
     #when was the website entry last updated in the database.
-
-    score = models.IntegerField()
+    sql_i_score = models.BooleanField()
+    #score = models.IntegerField()
     # the number of vulnerabilities that were found in the website the last time
 
     class Meta:
