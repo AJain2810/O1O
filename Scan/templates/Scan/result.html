@@ -61,6 +61,11 @@ body {
                     <div class="row">
                       <div class="Absolute-Center is-Responsive">
                         <div id="logo-container"></div>
+                        {% if res %}
+                            <h3>Website is XSS Vulnrarble</h3>
+                        {% else %}
+                            <h3>Website is XSS Immune</h3>
+                          {% endif %}
 
                       </div>
                     </div>

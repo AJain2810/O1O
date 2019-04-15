@@ -14,11 +14,13 @@ class XSS():
     def scan(self):
         browser = mechanize.Browser()
         attackNumber = 1
-        with open('XSS-vectors.txt') as f:
+        url = self._web_url
+        with open('Scan/Scripts/XSS-vectors.txt') as f:
             for line in f:
-                browser.open(self._web_url)
+                browser.open(url)
             browser.select_form(nr=0)
-            browser["fname"] = line
+            browser["searchkey"] = line
+            #https://www.woodlandworldwide.com/wnew/faces/search.jsp?searchkey=%3Cscript%3Ealert(1)%3C/script%3E&clg=10
             res = browser.submit()
             content = res.read()
             # check the attack vector is printed in the response.

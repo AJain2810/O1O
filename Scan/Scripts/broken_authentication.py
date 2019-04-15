@@ -1,5 +1,4 @@
 import mechanize
-import mechanize
 from itertools import combinations
 from string import ascii_lowercase
 
@@ -7,7 +6,7 @@ from string import ascii_lowercase
 class Broken_Authentication():
 
     def __init__(self, url):
-        self._url = url
+        self._url = str(url)
         self._status = False
 
     def get_status(self):
