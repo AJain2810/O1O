@@ -6,6 +6,7 @@ from .models import Website
 from .Scripts.broken_authentication import Broken_Authentication
 from .Scripts.xss import XSS
 import datetime
+from django.template import loader
 
 def evaluateWebsite(web_url):
     obj = Broken_Authentication(web_url)
@@ -16,10 +17,19 @@ def evaluateWebsite(web_url):
     resp_code2 = obj2.get_status()
     return resp_code or resp_code2
 
+def index_view(request):
+    if request.method == 'GET':
+        template = loader.get_template('Scan/index.html')
+        form = WebURLForm()
+        context = {
+            'form': form
+        }
+        return render(request,'Scan/index.html', context)
+
 
 def driverView(request):
 
-    if request.method == 'POST':
+    if request.method == 'GET' or request.method == 'POST':
         form = WebURLForm(request.POST)
 
         if form.is_valid():

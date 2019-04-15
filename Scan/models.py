@@ -21,4 +21,4 @@ class Website(models.Model):
     # the number of vulnerabilities that were found in the website the last time
 
     class Meta:
-        ordering = ["name"]
+        ordering = ["lastchecked"]

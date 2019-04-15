@@ -1,0 +1,80 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NewsRite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+div.well{
+  height: 250px;
+}
+      .Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+.Absolute-Center.is-Responsive {
+  width: 80%;
+  height: 50%;
+  min-width: 200px;
+  max-width: 800px;
+  padding: 40px;
+}
+body {
+    /* Location of the image */
+
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+    /* Background image is fixed in the viewport so that it doesn't move when
+        the content's height is greater than the image's height */
+    background-attachment: fixed;
+    /* This is what makes the background image rescale based
+        on the container's size */
+    background-size: cover;
+    /* Set a background color that will be displayed
+        while the background image is loading */
+    background-color: #464646;
+}
+.form-control{
+    line-height:50px;
+}
+    </style>
+</head>
+<body >
+        <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container" style="background-color:ivory">
+                  <div class="navbar-header">
+
+                    <div class="navbar-brand">O1O</div>
+                  </div>
+                </div>
+        </nav>
+
+              <div class="container">
+                    <div class="row">
+                      <div class="Absolute-Center is-Responsive">
+                        <div id="logo-container"></div>
+
+
+                            <form type="POST", action="input">
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" size="350" autocomplete="off" placeholder="URL" name="web_url" required>
+                                        <div class="input-group-btn">
+                                            <button type="submit" class="btn btn-info">Analyze</button>
+                                        </div>
+                                </div>
+                            </form>
+                      </div>
+                    </div>
+                  </div>
+</body>
+</html>
+

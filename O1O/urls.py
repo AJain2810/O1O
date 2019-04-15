@@ -15,9 +15,11 @@ Including another URL conf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include, path
 import Scan.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('^/input/$', include('Scan.urls'))
+    #path('/', views.default_view),
+    path('', include('Scan.urls'))
 ]

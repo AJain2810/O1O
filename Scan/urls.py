@@ -15,8 +15,9 @@ Including another URL conf
 """
 from django.contrib import admin
 from django.urls import path
-import views
+from . import views
 
 urlpatterns = [
-    path('^$', views.driverView, name='index')
+    path('', views.index_view, name='execute'),
+    path('input', views.driverView, name = 'index')
 ]
