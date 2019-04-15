@@ -3,14 +3,18 @@ from .forms import WebURLForm
 # Create your views here.
 from django.views import generic
 from .models import Website
-from .Scripts.sqli import SQLI
+from .Scripts.broken_authentication import Broken_Authentication
+from .Scripts.xss import XSS
 import datetime
 
 def evaluateWebsite(web_url):
-    obj = SQLI(web_url)
+    obj = Broken_Authentication(web_url)
     obj.run_tests()
     resp_code = obj.get_status()
-    return resp_code
+    obj2 = XSS(web_url)
+    obj2.scan()
+    resp_code2 = obj2.get_status()
+    return resp_code or resp_code2
 
 
 def driverView(request):
@@ -30,7 +34,7 @@ def driverView(request):
                 curr_date = datetime.date.today()
                 if last_date - curr_date > 1:
                     res = evaluateWebsite(web_url)
-                    if res == true:
+                    if res == True:
                         pass
                     else:
                         pass
@@ -40,7 +44,7 @@ def driverView(request):
                 else:
                     res = Website.objects.filter(URL= web_url)
                     score = res['sql_i_score']
-                    if res == true:
+                    if res == True:
                         pass
                     else:
                         pass
@@ -55,7 +59,7 @@ def driverView(request):
                 #run the check on the website
                 web_obj = Website( lastchecked= datetime.datetime.today(), sql_i_score = res, URL= web_url)
                 web_obj.save()
-                if res == true:
+                if res == True:
                     pass
                 else:
                     pass

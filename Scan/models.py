@@ -16,6 +16,7 @@ class Website(models.Model):
     lastchecked = models.DateField()
     #when was the website entry last updated in the database.
     sql_i_score = models.BooleanField()
+    xss_score = models.BooleanField()
     #score = models.IntegerField()
     # the number of vulnerabilities that were found in the website the last time
 
