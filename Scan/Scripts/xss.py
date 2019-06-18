@@ -14,7 +14,7 @@ class XSS():
     def scan(self):
         browser = mechanize.Browser()
         attackNumber = 1
-        url = self._web_url
+        url = str.encode(self._web_url)
         with open('Scan/Scripts/XSS-vectors.txt') as f:
             for line in f:
                 browser.open(url)
